@@ -61,21 +61,21 @@ def read_root():
     # 파이썬과 자바스크립트 간의 따옴표 충돌을 막기 위해 HTML 내부에 템플릿 리터럴(백틱) 사용을 제거했습니다.
     return """
     <div style="padding: 24px; border: 1px solid #e0e0e0; border-radius: 12px; max-width: 500px; margin: 40px auto; background-color: #ffffff; font-family: sans-serif; box-shadow: 0 4px 10px rgba(0,0,0,0.05);">
-        <h2 style="margin-top: 0; color: #4f46e5; border-bottom: 2px solid #4f46e5; padding-bottom: 8px; text-align: center;">📅 스마트 스케줄러 (To-Do)</h2>
+        <h2 style="margin-top: 0; color: #4f46e5; border-bottom: 2px solid #4f46e5; padding-bottom: 8px; text-align: center;"> Scheduler </h2>
         
         <div style="background-color: #f9fafb; padding: 16px; border-radius: 8px; margin-bottom: 20px; border: 1px solid #f3f4f6;">
             <div style="margin-bottom: 10px;">
-                <label style="display: block; margin-bottom: 4px; font-weight: bold; font-size: 14px; color: #374151;">할 일 목록 추가</label>
-                <input type="text" id="todoTitle" placeholder="무엇을 해야 하나요?" style="width: 100%; padding: 10px; box-sizing: border-box; border: 1px solid #d1d5db; border-radius: 6px;">
+                <label style="display: block; margin-bottom: 4px; font-weight: bold; font-size: 14px; color: #374151;">To Do Name</label>
+                <input type="text" id="todoTitle" placeholder="To Do" style="width: 100%; padding: 10px; box-sizing: border-box; border: 1px solid #d1d5db; border-radius: 6px;">
             </div>
             <div style="margin-bottom: 12px;">
-                <label style="display: block; margin-bottom: 4px; font-weight: bold; font-size: 14px; color: #374151;">마감 기한</label>
+                <label style="display: block; margin-bottom: 4px; font-weight: bold; font-size: 14px; color: #374151;">Deadline</label>
                 <input type="date" id="todoDeadline" style="width: 100%; padding: 10px; box-sizing: border-box; border: 1px solid #d1d5db; border-radius: 6px;">
             </div>
-            <button id="btnAdd" style="width: 100%; padding: 12px; background-color: #4f46e5; color: white; border: none; border-radius: 6px; cursor: pointer; font-size: 15px; font-weight: bold;">추가하기</button>
+            <button id="btnAdd" style="width: 100%; padding: 12px; background-color: #4f46e5; color: white; border: none; border-radius: 6px; cursor: pointer; font-size: 15px; font-weight: bold;">Add To Do</button>
         </div>
 
-        <h3 style="margin-bottom: 10px; color: #1f2937; font-size: 16px;">📋 나의 일정 리스트</h3>
+        <h3 style="margin-bottom: 10px; color: #1f2937; font-size: 16px;">Schedule List</h3>
         <div id="todoContainer" style="min-height: 50px;"></div>
     </div>
 
@@ -142,7 +142,7 @@ def read_root():
                 document.getElementById('todoDeadline').value = '';
                 loadTodos();
             } catch (error) {
-                alert('통신 에러');
+                alert('Connection Error');
             }
         });
 
@@ -151,7 +151,7 @@ def read_root():
                 await fetch('/api/todos/' + id + '/toggle', { method: 'POST' });
                 loadTodos();
             } catch (error) {
-                alert('변경 실패');
+                alert('Update Failed');
             }
         }
 
@@ -161,7 +161,7 @@ def read_root():
                 await fetch('/api/todos/' + id, { method: 'DELETE' });
                 loadTodos();
             } catch (error) {
-                alert('삭제 실패');
+                alert('Delete Failed');
             }
         }
 
