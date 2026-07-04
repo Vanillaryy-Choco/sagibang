@@ -89,7 +89,7 @@ def read_root():
                 todoContainer.innerHTML = '';
                 
                 if(todos.length === 0) {
-                    todoContainer.innerHTML = '<p style="color:#9ca3af; text-align:center; font-size:14px;">등록된 일정이 없습니다.</p>';
+                    todoContainer.innerHTML = '<p style="color:#9ca3af; text-align:center; font-size:14px;">Any Schedule Is Here.</p>';
                     return;
                 }
 
@@ -111,7 +111,7 @@ def read_root():
                         '<input type="checkbox" ' + (item.completed ? 'checked' : '') + ' onclick="toggleTodo(' + item.id + ')" style="width: 18px; height: 18px; cursor: pointer;">' +
                         '<div>' +
                             '<div style="' + titleStyle + '">' + item.title + '</div>' +
-                            '<div style="font-size: 12px; color: #6b7280; margin-top: 2px;">⏳ 마감: ' + item.deadline + '</div>' +
+                            '<div style="font-size: 12px; color: #6b7280; margin-top: 2px;">⏳ Deadline: ' + item.deadline + '</div>' +
                         '</div>' +
                     '</div>' +
                     '<button onclick="deleteTodo(' + item.id + ')" style="background: none; border: none; color: #ef4444; cursor: pointer; font-size: 14px; font-weight: bold; padding: 4px 8px;">삭제</button>';
@@ -128,7 +128,7 @@ def read_root():
             const deadline = document.getElementById('todoDeadline').value;
             
             if(!title.trim()) {
-                alert('할 일 내용을 입력해주세요!');
+                alert('Type your Schedule');
                 return;
             }
 
